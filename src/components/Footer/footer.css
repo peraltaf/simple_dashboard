@@ -1,0 +1,13 @@
+.footer__container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 35px;
+}
+
+.full_logo {
+  height: 35px;
+}

@@ -1,25 +1,146 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { Box, CssBaseline, IconButton, Toolbar } from '@mui/material';
+import MuiAppBar from '@mui/material/AppBar';
+import MenuIcon from '@mui/icons-material/Menu';
+import MainLayout from './components/MainLayout/MainLayout';
+import Sidebar from './components/Sidebar/Sidebar';
+import Footer from './components/Footer/Footer';
 import './App.css';
+import LOGO from './assets/logo-no-background_full.png';
+import useGlobalState, { sidebarState } from './globalState';
 
-function App() {
+
+const drawerWidth = 240;
+
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  }),
+);
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const App = () => {
+  const [open, setSidebarState] = useGlobalState(sidebarState);
+  const handleDrawerOpen = () => {
+    console.log('test')
+    setSidebarState(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position='fixed' open={open}>
+          <Toolbar>
+            <IconButton
+              color='inherit'
+              aria-label='open drawer'
+              onClick={handleDrawerOpen}
+              edge='start'
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <img src={LOGO} alt='logo' className='main_logo' />
+          </Toolbar>
+        </AppBar>
+        
+        <Sidebar />
+
+        <Main open={open}>
+          <MainLayout />
+        </Main>
+      </Box>
+
+      <Footer />
+    </>
   );
 }
 
 export default App;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { AppBar, Box, CssBaseline, IconButton, Toolbar } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import MainLayout from './components/MainLayout/MainLayout';
+// import Sidebar from './components/Sidebar/Sidebar';
+// import Footer from './components/Footer/Footer';
+// import './App.css';
+// import LOGO from './assets/logo-no-background_full.png';
+
+
+// const App = () => {
+//   const drawerWidth = 240;
+//   const [open, setOpen] = useState(false);
+//   const handleDrawerOpen = () => {
+//     setOpen(true);
+//   };
+
+//   return (
+//     <>
+//     <Box sx={{ display: 'flex' }}>
+//       <CssBaseline />
+//       <AppBar
+//         position='fixed'
+//         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+//       >
+//         <IconButton
+//           color='inherit'
+//           aria-label='open drawer'
+//           onClick={handleDrawerOpen}
+//           edge='start'
+//           sx={{ mr: 2, ...(open && { display: 'none' }) }}
+//         >
+//           <MenuIcon />
+//         </IconButton>
+//         <Toolbar sx={{ bgcolor: '#1976d2' }}>
+//           <img src={LOGO} alt='logo' className='main_logo' />
+//         </Toolbar>
+//       </AppBar>
+      
+//       <Sidebar />
+      
+//       <MainLayout />
+//     </Box>
+//     <Footer />
+//     </>
+//   );
+// }
+
+// export default App;
