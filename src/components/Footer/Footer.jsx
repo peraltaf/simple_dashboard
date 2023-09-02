@@ -18,12 +18,12 @@ const Footer = () => {
             <small>&copy; All rights reserved.</small>
           </Typography>
           
-          <IconButton href='https://fcperalta.me/' target='_blank' rel='noreferrer' style={{ backgroundColor: 'transparent' }}>
+          <IconButton href='https://fperalta.me/' target='_blank' rel='noreferrer' style={{ backgroundColor: 'transparent' }}>
             <img src={LOGO} alt='logo' className='logo' />
             <img src={FULL_LOGO} alt='logo' className='full_logo' />
           </IconButton>
 
-          <IconButton href='https://www.linkedin.com/in/fcperalta/' target='_blank' rel='noreferrer' sx={{ mt: '1rem', color: '#f8f8f8' }} style={{ backgroundColor: 'transparent' }}>
+          <IconButton href='https://www.linkedin.com/in/fperalta/' target='_blank' rel='noreferrer' sx={{ mt: '1rem', color: '#f8f8f8' }} style={{ backgroundColor: 'transparent' }}>
             <IconContext.Provider value={{ size: '1em' }}>
                 <Box>
                   <BsLinkedin />

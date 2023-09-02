@@ -72,7 +72,9 @@ const App = () => {
               <MenuIcon />
             </IconButton>
 
-            <img src={LOGO} alt='logo' className='main_logo' />
+            <IconButton href='https://fperalta.me/' target='_blank' rel='noreferrer' style={{ backgroundColor: 'transparent' }}>
+              <img src={LOGO} alt='logo' className='main_logo' />
+            </IconButton>
           </Toolbar>
         </AppBar>
         
@@ -89,58 +91,3 @@ const App = () => {
 }
 
 export default App;
-
-
-
-
-
-
-// import React, { useState } from 'react';
-// import { AppBar, Box, CssBaseline, IconButton, Toolbar } from '@mui/material';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import MainLayout from './components/MainLayout/MainLayout';
-// import Sidebar from './components/Sidebar/Sidebar';
-// import Footer from './components/Footer/Footer';
-// import './App.css';
-// import LOGO from './assets/logo-no-background_full.png';
-
-
-// const App = () => {
-//   const drawerWidth = 240;
-//   const [open, setOpen] = useState(false);
-//   const handleDrawerOpen = () => {
-//     setOpen(true);
-//   };
-
-//   return (
-//     <>
-//     <Box sx={{ display: 'flex' }}>
-//       <CssBaseline />
-//       <AppBar
-//         position='fixed'
-//         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-//       >
-//         <IconButton
-//           color='inherit'
-//           aria-label='open drawer'
-//           onClick={handleDrawerOpen}
-//           edge='start'
-//           sx={{ mr: 2, ...(open && { display: 'none' }) }}
-//         >
-//           <MenuIcon />
-//         </IconButton>
-//         <Toolbar sx={{ bgcolor: '#1976d2' }}>
-//           <img src={LOGO} alt='logo' className='main_logo' />
-//         </Toolbar>
-//       </AppBar>
-      
-//       <Sidebar />
-      
-//       <MainLayout />
-//     </Box>
-//     <Footer />
-//     </>
-//   );
-// }
-
-// export default App;
