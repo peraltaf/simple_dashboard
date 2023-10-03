@@ -55,7 +55,7 @@ const MainLayout = () => {
       title: ''
     },
     tooltip: {
-      formatter: function() {console.log(this)
+      formatter: function() {
         let tooltip = `<span style="font-size:10px;">${moment(this.x).format('MMMM YYYY')}</span>
           <br /><span style="font-size:12px;">${this.series.name}: <strong>${this.y}</strong></span>`;
         return tooltip;

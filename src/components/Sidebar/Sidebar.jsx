@@ -26,24 +26,6 @@ const Sidebar = () => {
   };
 
   return (
-    // <Drawer
-    //   sx={{
-    //     width: drawerWidth,
-    //     flexShrink: 0,
-    //     '& .MuiDrawer-paper': {
-    //       width: drawerWidth,
-    //       boxSizing: 'border-box',
-    //     },
-    //   }}
-    //   variant='permanent'
-    //   anchor='left'
-    // >
-    //   <Toolbar />
-    //   <Divider />
-    //   <Filters />
-    // </Drawer>
-
-
     <Drawer
       sx={{
         width: drawerWidth,

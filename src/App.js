@@ -52,7 +52,6 @@ const AppBar = styled(MuiAppBar, {
 const App = () => {
   const [open, setSidebarState] = useGlobalState(sidebarState);
   const handleDrawerOpen = () => {
-    console.log('test')
     setSidebarState(true);
   };
 
